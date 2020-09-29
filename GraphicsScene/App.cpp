@@ -78,6 +78,9 @@ bool App::draw(mat4 view, mat4 projection, GLFWwindow* window)
 			i == 10 ? white : black);
 	}
 
+	aie::Gizmos::addSphere(glm::vec3(0.0f, 0.0f, 0.0f), 6.0f, 5.0f, 5.0f, glm::vec4(0.8f, 0.8f, 1.0f, 1.0f),
+		mat4(glm::vec4(1.0f, 0.0f, 0.0f, 0.0f), glm::vec4(0.0f, 1.0f, 0.0f, 0.0f), glm::vec4(0.0f, 0.0f, 1.0f, 0.0f), glm::vec4(0.0f, 0.0f, 0.0f, 1.0f)), -360.0f, 360.0f, -90.0f, 90.0f);
+
 	aie::Gizmos::draw(projection * view);
 	glfwSwapBuffers(window);
 	glfwPollEvents();
