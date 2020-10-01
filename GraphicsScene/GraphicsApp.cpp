@@ -24,11 +24,21 @@ int GraphicsApp::run()
 	bool updating = true;
 	bool drawing = true;
 
+	double deltaTime = 0.0f;
+	double timeOfPreviousUpdate = 0.0f;
+
 	if (!start())
 		return -1;
 
-	while (updating && drawing) {
-		updating = update();
+	while (updating && drawing) 
+	{
+		double timeOfCurrentUpdate = glfwGetTime();
+
+		deltaTime = timeOfCurrentUpdate - timeOfPreviousUpdate;
+
+		timeOfPreviousUpdate = timeOfCurrentUpdate;
+
+		updating = update(deltaTime);
 		drawing = draw();
 	}
 
@@ -94,7 +104,7 @@ bool GraphicsApp::start()
 	return true;
 }
 
-bool GraphicsApp::update()
+bool GraphicsApp::update(double deltaTime)
 {
 	glfwPollEvents();
 
@@ -102,6 +112,8 @@ bool GraphicsApp::update()
 	if (glfwWindowShouldClose(m_window) || glfwGetKey(m_window, GLFW_KEY_ESCAPE)) {
 		return false;
 	}
+
+	m_view += deltaTime;
 
 	return true;
 }

@@ -20,7 +20,7 @@ public:
 	int run();
 
 	bool start();
-	bool update();
+	bool update(double deltaTime);
 	bool draw();
 	bool end();
 
