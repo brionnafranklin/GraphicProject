@@ -4,19 +4,15 @@
 #include <Gizmos.h>
 #include <glm/glm.hpp>
 #include <glm/ext.hpp>
-#include "App.h"
+#include "GraphicsApp.h"
 
 int main() 
 {
-	App* app = new App();
-	if (app->start())
-	{
-		while (app->update())
-		{
-			app->draw(app->view, app->projection, app->window);
-		}
-		app->end(app->window);
-	}
+	GraphicsApp* app = new GraphicsApp(1536, 864, "Computer Graphics");
+
+	app->run();
+
 	delete app;
+
 	return 0;
 }
