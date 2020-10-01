@@ -1,4 +1,5 @@
 #include "GraphicsApp.h"
+#include "Camera.h"
 #include <cstdio>
 
 GraphicsApp::GraphicsApp()
@@ -86,15 +87,10 @@ bool GraphicsApp::start()
 	//Initialize Gizmos
 	aie::Gizmos::create(10000, 10000, 10000, 10000);
 
-	//Set up the camera
-	m_view = glm::lookAt(
-		vec3(10, 10, 10),
-		vec3(0, 0, 0),
-		vec3(0, 1, 0));
-	m_projection = glm::perspective(
-		glm::pi<float>() * 0.25f,
-		16.0f / 9.0f,
-		0.1f, 1000.0f);
+	m_camera = new Camera(this);
+	m_camera->setPosition({ 10, 10, 10 });
+	m_camera->setYaw(-135.0f);
+	m_camera->setPitch(-35.0f);
 
 	//Set the clear color
 	glClearColor(0.05f, 0.05f, 0.025f, 1.0f);
@@ -113,7 +109,7 @@ bool GraphicsApp::update(double deltaTime)
 		return false;
 	}
 
-	m_view += deltaTime;
+	m_camera->update(deltaTime);
 
 	return true;
 }
@@ -145,7 +141,7 @@ bool GraphicsApp::draw()
 			i == 10 ? white : grey);
 	}
 
-	aie::Gizmos::draw(m_projection * m_view);
+	aie::Gizmos::draw(m_camera->getProjectionMatrix(m_width, m_height) * m_camera->getViewMatrix());
 
 	glfwSwapBuffers(m_window);
 

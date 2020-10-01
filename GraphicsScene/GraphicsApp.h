@@ -1,10 +1,11 @@
 #pragma once
 #include <gl_core_4_4.h>
 #include <GLFW/glfw3.h>
-#include <cstdio>
 #include <Gizmos.h>
 #include <glm/glm.hpp>
 #include <glm/ext.hpp>
+
+class Camera;
 
 using glm::vec3;
 using glm::vec4;
@@ -24,11 +25,12 @@ public:
 	bool draw();
 	bool end();
 
+	GLFWwindow* getWindow() { return m_window; }
+
 protected:
 
 	GLFWwindow* m_window;
-	mat4 m_view;
-	mat4 m_projection;
+	Camera* m_camera;
 
 private:
 
