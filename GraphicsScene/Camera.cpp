@@ -33,8 +33,19 @@ bool Camera::update(double deltaTime)
 
 	glm::vec3 up(0.0f, 0.0f, 0.0f);
 
+	glm::vec3 direction(
+		glfwGetKey(m_instance->getWindow(), keyLeft) - glfwGetKey(m_instance->getWindow(), keyRight), 
+		glfwGetKey(m_instance->getWindow(), keyUp) - glfwGetKey(m_instance->getWindow(), keyDown),
+		glfwGetKey(m_instance->getWindow(), keyForward) - glfwGetKey(m_instance->getWindow(), keyBack));
+	if (direction.x != 0.0f || direction.y != 0.0f || direction.z != 0.0f)
+	{
+		direction = glm::normalize(direction);
+	}
+
+	m_position += direction * m_moveSpeed * (float)deltaTime;
+
 	//check input
-	if (glfwGetKey(m_instance->getWindow(), keyForward))
+	/*if (glfwGetKey(m_instance->getWindow(), keyForward))
 	{
 		m_position += forward * (float)deltaTime;
 	}
@@ -57,20 +68,17 @@ bool Camera::update(double deltaTime)
 	if (glfwGetKey(m_instance->getWindow(), keyDown))
 	{
 		m_position -= up * (float)deltaTime;
-	}
+	}*/
 
-	double currentMouseX = 0.0f;
-	double currentMouseY = 0.0f;
-	double previousMouseX = 0.0f;
-	double previousMouseY = 0.0f;
+	glfwGetCursorPos(m_instance->getWindow(), &m_currentMouseX, &m_currentMouseY);
+	m_currentMouseX -= m_instance->getWidth() / 2;
+	m_currentMouseY -= m_instance->getHeight() / 2;
 
-	glfwGetCursorPos(m_instance->getWindow(), &currentMouseX, &currentMouseY);
+	m_yaw += m_turnSpeed * (m_currentMouseX - m_previousMouseX);
+	m_pitch -= m_turnSpeed * (m_currentMouseY - m_previousMouseY);
 
-	m_yaw += m_turnSpeed * (currentMouseX - previousMouseX);
-	m_pitch -= m_turnSpeed * (currentMouseY - previousMouseY);
-
-	previousMouseX = currentMouseX;
-	previousMouseY = currentMouseY;
+	m_previousMouseX = m_currentMouseX;
+	m_previousMouseY = m_currentMouseY;
 
 	return true;
 }

@@ -29,6 +29,12 @@ private:
 	float m_pitch = 0.0f; //phi
 	glm::vec3 m_position;
 
-	float m_turnSpeed = 0.1f;
+	float m_moveSpeed = 1.0f;
+	float m_turnSpeed = 0.01f;
+
+	double m_currentMouseX = 0.0f;
+	double m_currentMouseY = 0.0f;
+	double m_previousMouseX = 0.0f;
+	double m_previousMouseY = 0.0f;
 };
 
