@@ -97,6 +97,8 @@ bool GraphicsApp::start()
 	//Enable OpenGL depth test
 	glEnable(GL_DEPTH_TEST);
 
+	m_rotatingSphere = new RotatingSphere(glm::vec4(0.2f, 0.8f, 0.9f, 1.0f), 2.0f, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
+
 	return true;
 }
 
@@ -141,6 +143,8 @@ bool GraphicsApp::draw()
 			i == 10 ? white : grey);
 	}
 
+	m_rotatingSphere->draw();
+	
 	aie::Gizmos::draw(m_camera->getProjectionMatrix(m_width, m_height) * m_camera->getViewMatrix());
 
 	glfwSwapBuffers(m_window);
@@ -150,6 +154,8 @@ bool GraphicsApp::draw()
 
 bool GraphicsApp::end()
 {
+	delete m_rotatingSphere;
+
 	//Destroy the Gizmos
 	aie::Gizmos::destroy();
 

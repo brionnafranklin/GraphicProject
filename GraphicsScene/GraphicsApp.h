@@ -4,6 +4,7 @@
 #include <Gizmos.h>
 #include <glm/glm.hpp>
 #include <glm/ext.hpp>
+#include "RotatingSphere.h"
 
 class Camera;
 
@@ -34,6 +35,7 @@ protected:
 
 	GLFWwindow* m_window;
 	Camera* m_camera;
+	RotatingSphere* m_rotatingSphere;
 
 private:
 
