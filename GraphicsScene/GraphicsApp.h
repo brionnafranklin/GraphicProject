@@ -36,6 +36,7 @@ protected:
 	GLFWwindow* m_window;
 	Camera* m_camera;
 	RotatingSphere* m_rotatingSphere;
+	Actor *m_startActor, *m_endActor;
 
 private:
 

@@ -16,8 +16,6 @@ public:
 	void setYaw(float degrees) { m_yaw = degrees; }
 	float getPitch() { return m_pitch; }
 	void setPitch(float degrees) { m_pitch = degrees; }
-	glm::vec3 getPosition() { return m_position; }
-	void setPosition(glm::vec3 position) { m_position = position; }
 
 	bool update(double deltaTime) override;
 

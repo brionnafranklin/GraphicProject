@@ -98,6 +98,15 @@ bool GraphicsApp::start()
 	glEnable(GL_DEPTH_TEST);
 
 	m_rotatingSphere = new RotatingSphere(glm::vec4(0.2f, 0.8f, 0.9f, 1.0f), 2.0f, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
+	m_startActor = new Actor();
+	m_endActor = new Actor();
+	m_startActor->setPosition({ 10.0f, 5.0f, 10.0f });
+	m_startActor->setRotation(glm::vec3( 0.0f, -1.0f, 0.0f ));
+	m_endActor->setPosition({ -10.0f, 0.0f, -10.0f });
+	m_endActor->setRotation(glm::vec3(0.0f, 1.0f, 0.0f));
+
+	m_rotatingSphere->setPosition(m_startActor->getPosition());
+	m_rotatingSphere->setRotation(m_startActor->getRotation());
 
 	return true;
 }
