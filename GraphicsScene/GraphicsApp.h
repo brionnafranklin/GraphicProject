@@ -5,6 +5,8 @@
 #include <glm/glm.hpp>
 #include <glm/ext.hpp>
 #include "RotatingSphere.h"
+#include "Bone.h"
+#include "Skeleton.h"
 
 class Camera;
 
@@ -35,8 +37,12 @@ protected:
 
 	GLFWwindow* m_window;
 	Camera* m_camera;
-	RotatingSphere* m_rotatingSphere;
-	Actor *m_startActor, *m_endActor;
+	//RotatingSphere* m_rotatingSphere;
+	//Actor *m_startActor, *m_endActor;
+	Bone* m_hipBone;
+	Bone* m_kneeBone;
+	Bone* m_ankleBone;
+	Skeleton* m_skeleton;
 
 private:
 

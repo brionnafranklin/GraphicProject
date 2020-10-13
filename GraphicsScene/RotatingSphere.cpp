@@ -7,11 +7,11 @@ RotatingSphere::RotatingSphere()
 	m_position = glm::vec3(1.0f, 1.0f, 1.0f);
 }
 
-RotatingSphere::RotatingSphere(glm::vec4 color, float radius, float rotationSpeed, glm::vec3 position)
+RotatingSphere::RotatingSphere(glm::vec4 color, float radius)
 {
 	m_color = color;
 	m_radius = radius;
-	m_position = position;
+	//m_position = position;
 }
 
 RotatingSphere::~RotatingSphere()
@@ -24,13 +24,13 @@ bool RotatingSphere::draw()
 
 	return true;
 }
-
-void RotatingSphere::rotate()
-{
-	
-}
-
-void RotatingSphere::orbit(Actor parentBody)
-{
-
-}
+//
+//void RotatingSphere::rotate()
+//{
+//	
+//}
+//
+//void RotatingSphere::orbit(Actor parentBody)
+//{
+//
+//}

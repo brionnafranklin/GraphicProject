@@ -97,16 +97,28 @@ bool GraphicsApp::start()
 	//Enable OpenGL depth test
 	glEnable(GL_DEPTH_TEST);
 
-	m_rotatingSphere = new RotatingSphere(glm::vec4(0.2f, 0.8f, 0.9f, 1.0f), 2.0f, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
-	m_startActor = new Actor();
-	m_endActor = new Actor();
-	m_startActor->setPosition({ 10.0f, 5.0f, 10.0f });
-	m_startActor->setRotation(glm::vec3( 0.0f, -1.0f, 0.0f ));
-	m_endActor->setPosition({ -10.0f, 0.0f, -10.0f });
-	m_endActor->setRotation(glm::vec3(0.0f, 1.0f, 0.0f));
+	//Create bones
+	m_hipBone = new Bone({
+		{ 0.0f, 5.0f, 0.0f }, glm::vec3(1.0f, 0.0f, 0.0f) },
+		{ { 0.0f, 5.0f, 0.0f }, glm::vec3(-1.0f, 0.0f, 0.0f) }
+	);
+	m_kneeBone = new Bone({
+		{ 0.0f, -2.5f, 0.0f }, glm::vec3(1.0f, 0.0f, 0.0f) },
+		{ { 0.0f, -2.5f, 0.0f }, glm::vec3(0.0f, 0.0f, 0.0f) }
+	);
+	m_ankleBone = new Bone({
+		{ 0.0f, -2.5f, 0.0f }, glm::vec3(-1.0f, 0.0f, 0.0f) },
+		{ { 0.0f, -2.5f, 0.0f }, glm::vec3(0.0f, 0.0f, 0.0f) }
+	);
+	m_kneeBone->setParent(m_hipBone);
+	m_ankleBone->setParent(m_kneeBone);
 
-	m_rotatingSphere->setPosition(m_startActor->getPosition());
-	m_rotatingSphere->setRotation(m_startActor->getRotation());
+	//Create a skeleton
+	m_skeleton = new Skeleton();
+	//Add the bone to the skeleton
+	m_skeleton->addBone(m_hipBone);
+	m_skeleton->addBone(m_kneeBone);
+	m_skeleton->addBone(m_ankleBone);
 
 	return true;
 }
@@ -121,6 +133,8 @@ bool GraphicsApp::update(double deltaTime)
 	}
 
 	m_camera->update(deltaTime);
+
+	m_skeleton->update(deltaTime);
 
 	return true;
 }
@@ -152,7 +166,7 @@ bool GraphicsApp::draw()
 			i == 10 ? white : grey);
 	}
 
-	m_rotatingSphere->draw();
+	m_skeleton->draw();
 	
 	aie::Gizmos::draw(m_camera->getProjectionMatrix(m_width, m_height) * m_camera->getViewMatrix());
 
