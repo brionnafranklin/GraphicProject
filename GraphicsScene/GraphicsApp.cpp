@@ -84,13 +84,36 @@ bool GraphicsApp::start()
 	int minor = ogl_GetMinorVersion();
 	printf("OpenGL version: %i.%i\n", major, minor);
 
+	//Initialize Shader
+	m_shader.loadShader(aie::eShaderStage::VERTEX,
+		"simple.vert");
+	m_shader.loadShader(aie::eShaderStage::FRAGMENT,
+		"simple.frag");
+	if (!m_shader.link()) {
+		printf("Shader Error: %s\n", m_shader.getLastError());
+		return false;
+	}
+
 	//Initialize Gizmos
 	aie::Gizmos::create(10000, 10000, 10000, 10000);
 
+	//intialise camera
 	m_camera = new Camera(this);
 	m_camera->setPosition({ 10, 10, 10 });
 	m_camera->setYaw(-135.0f);
 	m_camera->setPitch(-35.0f);
+
+	//Initialise the quad
+	m_quadMesh.initializeQuad();
+
+	//set up the quad transform
+	m_quadTransform =
+	{
+		10, 0, 0, 0,
+		0, 10, 0, 0,
+		0, 0, 10, 0,
+		0, 0, 0, 1
+	};
 
 	//Set the clear color
 	glClearColor(0.05f, 0.05f, 0.025f, 1.0f);
@@ -166,9 +189,22 @@ bool GraphicsApp::draw()
 			i == 10 ? white : grey);
 	}
 
+	mat4 projectionMatrix = m_camera->getProjectionMatrix(m_width, m_height);
+	mat4 viewMatrix = m_camera->getViewMatrix();
+
+	// bind shader
+	m_shader.bind();
+
+	// bind transform
+	mat4 pvm = projectionMatrix * viewMatrix * m_quadTransform;
+	m_shader.bindUniform("ProjectionViewModel", pvm);
+
+	// draw quad
+	m_quadMesh.draw();
+
 	m_skeleton->draw();
 	
-	aie::Gizmos::draw(m_camera->getProjectionMatrix(m_width, m_height) * m_camera->getViewMatrix());
+	aie::Gizmos::draw(projectionMatrix * viewMatrix);
 
 	glfwSwapBuffers(m_window);
 
@@ -177,7 +213,11 @@ bool GraphicsApp::draw()
 
 bool GraphicsApp::end()
 {
-	delete m_rotatingSphere;
+	//delete m_rotatingSphere;
+	delete m_hipBone;
+	delete m_kneeBone;
+	delete m_ankleBone;
+	delete m_skeleton;
 
 	//Destroy the Gizmos
 	aie::Gizmos::destroy();

@@ -7,6 +7,8 @@
 #include "RotatingSphere.h"
 #include "Bone.h"
 #include "Skeleton.h"
+#include "Shader.h"
+#include "Mesh.h"
 
 class Camera;
 
@@ -39,6 +41,11 @@ protected:
 	Camera* m_camera;
 	//RotatingSphere* m_rotatingSphere;
 	//Actor *m_startActor, *m_endActor;
+
+	aie::ShaderProgram m_shader;
+	Mesh m_quadMesh;
+	glm::mat4 m_quadTransform;
+
 	Bone* m_hipBone;
 	Bone* m_kneeBone;
 	Bone* m_ankleBone;
@@ -50,4 +57,3 @@ private:
 	int m_height;
 	const char* m_title;
 };
-
