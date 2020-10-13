@@ -199,6 +199,9 @@ bool GraphicsApp::draw()
 	mat4 pvm = projectionMatrix * viewMatrix * m_quadTransform;
 	m_shader.bindUniform("ProjectionViewModel", pvm);
 
+	//bind time
+	m_shader.bindUniform("timePassed", (float)glfwGetTime());
+
 	// draw quad
 	m_quadMesh.draw();
 

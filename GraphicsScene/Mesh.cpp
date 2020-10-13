@@ -31,6 +31,14 @@ void Mesh::initializeQuad()
 	vertices[3].position = { -0.5f, 0.0f, -0.5f, 1 };
 	vertices[4].position = { 0.5f, 0.0f, 0.5f, 1 };
 	vertices[5].position = { 0.5f, 0.0f, -0.5f, 1 };
+	//Triangle A
+	vertices[0].color = { 0.8f, 0.2f, 0.8f, 1 }; // magenta		//green 0.2f, 0.8f, 0.2f, 1
+	vertices[1].color = { 1.0f, 1.0f, 1.0f, 1 }; //	white	//magenta 0.8f, 0.2f, 0.8f, 1
+	vertices[2].color = { 1.0f, 1.0f, 1.0f, 1 }; //	white	//cyan 0.2f, 0.8f, 0.2f, 1
+	//Triangle B
+	vertices[3].color = { 1.0f, 1.0f, 1.0f, 1 }; //	white	//cyan 0.2f, 0.8f, 0.8f, 1 
+	vertices[4].color = { 1.0f, 1.0f, 1.0f, 1 }; // white		//magenta 0.8f, 0.2f, 0.8f, 1
+	vertices[5].color = { 0.8f, 0.2f, 0.2f, 1 }; // red		//red 0.8f, 0.2f, 0.2f, 1
 
 	//Fill vertex buffer
 	glBufferData(
@@ -49,6 +57,17 @@ void Mesh::initializeQuad()
 		GL_FALSE,
 		sizeof(Vertex),
 		0
+	);
+
+	//Enable second element as color
+	glEnableVertexAttribArray(1);
+	glVertexAttribPointer(
+		1,
+		4,
+		GL_FLOAT,
+		GL_FALSE,
+		sizeof(Vertex),
+		(GLvoid*)(8 * sizeof(float))
 	);
 
 	//Unbind buffers
