@@ -56,33 +56,56 @@ void Mesh::initialize(unsigned int vertexCount, const Vertex* vertices, unsigned
 	glBindVertexArray(0);
 	glBindBuffer(GL_ARRAY_BUFFER, 0);
 
-	//Quad has two trianges
-	m_triCount = 2;
+	// bind indices if there are any
+	if (indexCount != 0) 
+	{
+		//generated index buffer
+		glGenBuffers(1, &m_ibo);
+
+		// bind index buffer
+		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, m_ibo);
+
+		// fill index buffer
+		glBufferData(GL_ELEMENT_ARRAY_BUFFER,
+			indexCount * sizeof(unsigned int), indices, GL_STATIC_DRAW);
+		m_triCount = indexCount / 3;
+	}
+	else 
+	{
+		m_triCount = vertexCount / 3;
+	}
+
+	// unbind buffers
+	glBindVertexArray(0);
+	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
+	glBindBuffer(GL_ARRAY_BUFFER, 0);
+
 }
 
 void Mesh::initializeQuad()
 {
 
 	//Define 6 vertices for 2 triangles
-	Vertex vertices[6];
-	//Triangle A
+	Vertex vertices[4];
+	//positions
 	vertices[0].position = { -0.5f, 0.0f, 0.5f, 1 };
 	vertices[1].position = { 0.5f, 0.0f, 0.5f, 1 };
 	vertices[2].position = { -0.5f, 0.0f, -0.5f, 1 };
-	//Triangle B
-	vertices[3].position = { -0.5f, 0.0f, -0.5f, 1 };
-	vertices[4].position = { 0.5f, 0.0f, 0.5f, 1 };
-	vertices[5].position = { 0.5f, 0.0f, -0.5f, 1 };
-	//Triangle A
+	vertices[3].position = { 0.5f, 0.0f, -0.5f, 1 };
+	//colors
 	vertices[0].color = { 0.8f, 0.2f, 0.8f, 1 }; // magenta		//green 0.2f, 0.8f, 0.2f, 1
 	vertices[1].color = { 1.0f, 1.0f, 1.0f, 1 }; //	white	//magenta 0.8f, 0.2f, 0.8f, 1
 	vertices[2].color = { 1.0f, 1.0f, 1.0f, 1 }; //	white	//cyan 0.2f, 0.8f, 0.2f, 1
-	//Triangle B
-	vertices[3].color = { 1.0f, 1.0f, 1.0f, 1 }; //	white	//cyan 0.2f, 0.8f, 0.8f, 1 
-	vertices[4].color = { 1.0f, 1.0f, 1.0f, 1 }; // white		//magenta 0.8f, 0.2f, 0.8f, 1
-	vertices[5].color = { 0.8f, 0.2f, 0.2f, 1 }; // red		//red 0.8f, 0.2f, 0.2f, 1
+	vertices[3].color = { 0.8f, 0.2f, 0.2f, 1 }; // red		//red 0.8f, 0.2f, 0.2f, 1
 
-	initialize(6, vertices);
+	//define 6 indices for 2 triangles
+	unsigned int indices[6] = 
+	{
+		0, 1, 2, //Triangle A
+		2, 1, 3 //Triangle B
+	};
+
+	initialize(4, vertices, 6, indices);
 }
 
 void Mesh::draw()
