@@ -8,7 +8,7 @@ Mesh::~Mesh()
 	glDeleteBuffers(1, &m_ibo);
 }
 
-void Mesh::initializeQuad()
+void Mesh::initialize(unsigned int vertexCount, const Vertex* vertices, unsigned int indexCount, unsigned int* indices)
 {
 	//Check that the mesh is not already initialized
 	assert(m_vao == 0);
@@ -21,29 +21,11 @@ void Mesh::initializeQuad()
 	glBindVertexArray(m_vao);
 	glBindBuffer(GL_ARRAY_BUFFER, m_vbo);
 
-	//Define 6 vertices for 2 triangles
-	Vertex vertices[6];
-	//Triangle A
-	vertices[0].position = { -0.5f, 0.0f, 0.5f, 1 };
-	vertices[1].position = { 0.5f, 0.0f, 0.5f, 1 };
-	vertices[2].position = { -0.5f, 0.0f, -0.5f, 1 };
-	//Triangle B
-	vertices[3].position = { -0.5f, 0.0f, -0.5f, 1 };
-	vertices[4].position = { 0.5f, 0.0f, 0.5f, 1 };
-	vertices[5].position = { 0.5f, 0.0f, -0.5f, 1 };
-	//Triangle A
-	vertices[0].color = { 0.8f, 0.2f, 0.8f, 1 }; // magenta		//green 0.2f, 0.8f, 0.2f, 1
-	vertices[1].color = { 1.0f, 1.0f, 1.0f, 1 }; //	white	//magenta 0.8f, 0.2f, 0.8f, 1
-	vertices[2].color = { 1.0f, 1.0f, 1.0f, 1 }; //	white	//cyan 0.2f, 0.8f, 0.2f, 1
-	//Triangle B
-	vertices[3].color = { 1.0f, 1.0f, 1.0f, 1 }; //	white	//cyan 0.2f, 0.8f, 0.8f, 1 
-	vertices[4].color = { 1.0f, 1.0f, 1.0f, 1 }; // white		//magenta 0.8f, 0.2f, 0.8f, 1
-	vertices[5].color = { 0.8f, 0.2f, 0.2f, 1 }; // red		//red 0.8f, 0.2f, 0.2f, 1
 
 	//Fill vertex buffer
 	glBufferData(
 		GL_ARRAY_BUFFER,
-		6 * sizeof(Vertex),
+		vertexCount * sizeof(Vertex),
 		vertices,
 		GL_STATIC_DRAW
 	);
@@ -76,6 +58,31 @@ void Mesh::initializeQuad()
 
 	//Quad has two trianges
 	m_triCount = 2;
+}
+
+void Mesh::initializeQuad()
+{
+
+	//Define 6 vertices for 2 triangles
+	Vertex vertices[6];
+	//Triangle A
+	vertices[0].position = { -0.5f, 0.0f, 0.5f, 1 };
+	vertices[1].position = { 0.5f, 0.0f, 0.5f, 1 };
+	vertices[2].position = { -0.5f, 0.0f, -0.5f, 1 };
+	//Triangle B
+	vertices[3].position = { -0.5f, 0.0f, -0.5f, 1 };
+	vertices[4].position = { 0.5f, 0.0f, 0.5f, 1 };
+	vertices[5].position = { 0.5f, 0.0f, -0.5f, 1 };
+	//Triangle A
+	vertices[0].color = { 0.8f, 0.2f, 0.8f, 1 }; // magenta		//green 0.2f, 0.8f, 0.2f, 1
+	vertices[1].color = { 1.0f, 1.0f, 1.0f, 1 }; //	white	//magenta 0.8f, 0.2f, 0.8f, 1
+	vertices[2].color = { 1.0f, 1.0f, 1.0f, 1 }; //	white	//cyan 0.2f, 0.8f, 0.2f, 1
+	//Triangle B
+	vertices[3].color = { 1.0f, 1.0f, 1.0f, 1 }; //	white	//cyan 0.2f, 0.8f, 0.8f, 1 
+	vertices[4].color = { 1.0f, 1.0f, 1.0f, 1 }; // white		//magenta 0.8f, 0.2f, 0.8f, 1
+	vertices[5].color = { 0.8f, 0.2f, 0.2f, 1 }; // red		//red 0.8f, 0.2f, 0.2f, 1
+
+	initialize(6, vertices);
 }
 
 void Mesh::draw()
