@@ -10,6 +10,8 @@
 #include <Texture.h>
 #include "Shader.h"
 #include "Mesh.h"
+#include "OBJMesh.h"
+#include "Earth.h"
 
 class Camera;
 
@@ -44,9 +46,15 @@ protected:
 	//Actor *m_startActor, *m_endActor;
 
 	aie::ShaderProgram m_shader;
+
+	aie::OBJMesh m_objMesh;
+	aie::Texture m_objTexture;
+
 	Mesh m_mesh;
 	glm::mat4 m_transform;
 	aie::Texture m_texture;
+
+	Earth* m_earth;
 
 	Bone* m_hipBone;
 	Bone* m_kneeBone;

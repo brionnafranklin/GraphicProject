@@ -42,9 +42,9 @@ void Mesh::initialize(unsigned int vertexCount, const Vertex* vertices, unsigned
 	);
 
 	//Enable second element as color
-	glEnableVertexAttribArray(1);
+	glEnableVertexAttribArray(4);
 	glVertexAttribPointer(
-		1,
+		4,
 		4,
 		GL_FLOAT,
 		GL_FALSE,

@@ -42,6 +42,12 @@
     <ClCompile Include="Shader.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="OBJMesh.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Earth.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GraphicsApp.h">
@@ -68,12 +74,36 @@
     <ClInclude Include="Shader.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="OBJMesh.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="tiny_obj_loader.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Earth.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="simple.vert">
       <Filter>Resource Files</Filter>
     </None>
     <None Include="simple.frag">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Bunny.mtl">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Dragon.mtl">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Lucy.mtl">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Buddha.mtl">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="soulspear.mtl">
       <Filter>Resource Files</Filter>
     </None>
   </ItemGroup>
@@ -96,6 +126,15 @@
     <Image Include="earth_cloud_trans.jpg">
       <Filter>Resource Files</Filter>
     </Image>
+    <Image Include="soulspear_diffuse.tga">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="soulspear_normal.tga">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="soulspear_specular.tga">
+      <Filter>Resource Files</Filter>
+    </Image>
   </ItemGroup>
   <ItemGroup>
     <Object Include="Buddha.obj">
@@ -108,6 +147,9 @@
       <Filter>Resource Files</Filter>
     </Object>
     <Object Include="Lucy.obj">
+      <Filter>Resource Files</Filter>
+    </Object>
+    <Object Include="soulspear.obj">
       <Filter>Resource Files</Filter>
     </Object>
   </ItemGroup>

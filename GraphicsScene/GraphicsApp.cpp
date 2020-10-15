@@ -94,9 +94,10 @@ bool GraphicsApp::start()
 		return false;
 	}
 
-	if (!m_texture.load("earth_diffuse.jpg"))
+
+	if (!m_objMesh.load("soulspear.obj"))
 	{
-		printf("Failed to load texture ;~; \n");
+		printf("Failed to Load soulspear.obj \n");
 		return false;
 	}
 
@@ -109,15 +110,15 @@ bool GraphicsApp::start()
 	m_camera->setYaw(-135.0f);
 	m_camera->setPitch(-35.0f);
 
-	//Initialise the mesh
-	m_mesh.initializeCube();
+	m_earth = new Earth({ 0.0f, 0.0f, 0.0f }, glm::vec3(1.0f, 0.0f, 0.0f), { 2.0f, 2.0f, 2.0f });
+	m_earth->start();
 
 	//set up the quad transform
 	m_transform =
 	{
-		10, 0, 0, 0,
-		0, 10, 0, 0,
-		0, 0, 10, 0,
+		1, 0, 0, 0,
+		0, 1, 0, 0,
+		0, 0, 1, 0,
 		0, 0, 0, 1
 	};
 
@@ -202,18 +203,20 @@ bool GraphicsApp::draw()
 	m_shader.bind();
 
 	// bind transform
-	mat4 pvm = projectionMatrix * viewMatrix * m_transform;
+	mat4 pvm = projectionMatrix * viewMatrix * m_earth->getTransform();
 	m_shader.bindUniform("ProjectionViewModel", pvm);
+
+	//bind texture
+	m_shader.bindUniform("diffuseTexture", 0);
 
 	//bind time
 	m_shader.bindUniform("timePassed", (float)glfwGetTime());
 
-	//bind texture
-	m_shader.bindUniform("diffuseTexture", 0);
-	m_texture.bind(0);
+	// draw earth
+	m_earth->draw();
 
-	// draw quad
-	m_mesh.draw();
+	//draw objMesh
+	m_objMesh.draw();
 
 	//m_skeleton->draw();
 	

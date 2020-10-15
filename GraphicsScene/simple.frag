@@ -12,5 +12,5 @@ void main()
 {
 	// float color = (vertexColor.x + vertexColor.y + vertexColor.z) / 3;
 	// FragColor = vColor;
-	FragColor = texture(diffuseTexture, vTexCoord) * vColor;
+	FragColor = texture(diffuseTexture, vTexCoord);
 }
