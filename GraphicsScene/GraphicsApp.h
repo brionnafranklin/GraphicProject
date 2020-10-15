@@ -43,8 +43,8 @@ protected:
 	//Actor *m_startActor, *m_endActor;
 
 	aie::ShaderProgram m_shader;
-	Mesh m_quadMesh;
-	glm::mat4 m_quadTransform;
+	Mesh m_mesh;
+	glm::mat4 m_transform;
 
 	Bone* m_hipBone;
 	Bone* m_kneeBone;

@@ -52,10 +52,6 @@ void Mesh::initialize(unsigned int vertexCount, const Vertex* vertices, unsigned
 		(GLvoid*)(8 * sizeof(float))
 	);
 
-	//Unbind buffers
-	glBindVertexArray(0);
-	glBindBuffer(GL_ARRAY_BUFFER, 0);
-
 	// bind indices if there are any
 	if (indexCount != 0) 
 	{
@@ -107,6 +103,58 @@ void Mesh::initializeQuad()
 
 	initialize(4, vertices, 6, indices);
 }
+
+void Mesh::initializeCube()
+{
+
+	//Define 8 vertices for 12 triangles
+	Vertex vertices[8];
+	//positions
+	//Bottom
+	vertices[0].position = { -0.5f, 0.0f, 0.5f, 1 };
+	vertices[1].position = { 0.5f, 0.0f, 0.5f, 1 };
+	vertices[2].position = { -0.5f, 0.0f, -0.5f, 1 };
+	vertices[3].position = { 0.5f, 0.0f, -0.5f, 1 };
+	//Top
+	vertices[4].position = { -0.5f, 1.0f, 0.5f, 1 };
+	vertices[5].position = { 0.5f, 1.0f, 0.5f, 1 };
+	vertices[6].position = { -0.5f, 1.0f, -0.5f, 1 };
+	vertices[7].position = { 0.5f, 1.0f, -0.5f, 1 };
+	//colors
+	glm::vec4 magenta = { 0.8f, 0.2f, 0.8f, 1 };
+	glm::vec4 white = { 1.0f, 1.0f, 1.0f, 1 };
+	glm::vec4 red = { 0.8f, 0.2f, 0.2f, 1 };
+	//Bottom
+	vertices[0].color = magenta; 
+	vertices[1].color = white; 	
+	vertices[2].color = white;
+	vertices[3].color = red;
+	//Top
+	vertices[4].color = magenta;
+	vertices[5].color = white;
+	vertices[6].color = white;
+	vertices[7].color = red;
+
+	//define 36 indices for 12 triangles
+	unsigned int indices[36] =
+	{
+		0, 1, 2, //Bottom A
+		2, 1, 3, //Bottom B
+		4, 5, 6, //Top A
+		6, 5, 7, //Top B
+		2, 0, 6, //Left A
+		4, 0, 6, //Left B
+		1, 3, 5, //Right A
+		3, 5, 7, //Right B
+		0, 1, 4, //Front A
+		1, 4, 5, //Front B
+		2, 3, 7, //Back A
+		2, 6, 7  //Back B
+	};
+
+	initialize(8, vertices, 36, indices);
+}
+
 
 void Mesh::draw()
 {

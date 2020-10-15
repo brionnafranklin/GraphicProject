@@ -103,11 +103,11 @@ bool GraphicsApp::start()
 	m_camera->setYaw(-135.0f);
 	m_camera->setPitch(-35.0f);
 
-	//Initialise the quad
-	m_quadMesh.initializeQuad();
+	//Initialise the cube
+	m_mesh.initializeCube();
 
 	//set up the quad transform
-	m_quadTransform =
+	m_transform =
 	{
 		10, 0, 0, 0,
 		0, 10, 0, 0,
@@ -196,16 +196,16 @@ bool GraphicsApp::draw()
 	m_shader.bind();
 
 	// bind transform
-	mat4 pvm = projectionMatrix * viewMatrix * m_quadTransform;
+	mat4 pvm = projectionMatrix * viewMatrix * m_transform;
 	m_shader.bindUniform("ProjectionViewModel", pvm);
 
 	//bind time
 	m_shader.bindUniform("timePassed", (float)glfwGetTime());
 
 	// draw quad
-	m_quadMesh.draw();
+	m_mesh.draw();
 
-	m_skeleton->draw();
+	//m_skeleton->draw();
 	
 	aie::Gizmos::draw(projectionMatrix * viewMatrix);
 
