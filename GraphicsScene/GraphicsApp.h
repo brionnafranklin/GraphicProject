@@ -7,6 +7,7 @@
 #include "RotatingSphere.h"
 #include "Bone.h"
 #include "Skeleton.h"
+#include <Texture.h>
 #include "Shader.h"
 #include "Mesh.h"
 
@@ -45,6 +46,7 @@ protected:
 	aie::ShaderProgram m_shader;
 	Mesh m_mesh;
 	glm::mat4 m_transform;
+	aie::Texture m_texture;
 
 	Bone* m_hipBone;
 	Bone* m_kneeBone;

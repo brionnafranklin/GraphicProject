@@ -104,6 +104,11 @@ void Mesh::initializeQuad()
 	vertices[1].color = { 1.0f, 1.0f, 1.0f, 1 }; //	white	//magenta 0.8f, 0.2f, 0.8f, 1
 	vertices[2].color = { 1.0f, 1.0f, 1.0f, 1 }; //	white	//cyan 0.2f, 0.8f, 0.2f, 1
 	vertices[3].color = { 0.8f, 0.2f, 0.2f, 1 }; // red		//red 0.8f, 0.2f, 0.2f, 1
+	//TexCoord
+	vertices[0].texCoord = { 0, 1 };
+	vertices[1].texCoord = { 1, 1 };
+	vertices[2].texCoord = { 0, 0 };
+	vertices[3].texCoord = { 1, 0 };
 
 	//define 6 indices for 2 triangles
 	unsigned int indices[6] = 
@@ -145,6 +150,17 @@ void Mesh::initializeCube()
 	vertices[5].color = white;
 	vertices[6].color = white;
 	vertices[7].color = red;
+	//TexCoord
+	//Bottom
+	vertices[0].texCoord = { 0.25f, 0.833f };
+	vertices[1].texCoord = { 0.50f, 0.833f };
+	vertices[2].texCoord = { 1.00f, 0.833f };
+	vertices[3].texCoord = { 0.75f, 0.833f };
+	//top
+	vertices[4].texCoord = { 0.25f, 0.166f };
+	vertices[5].texCoord = { 0.50f, 0.166f };
+	vertices[6].texCoord = { 1.00f, 0.166f };
+	vertices[7].texCoord = { 0.75f, 0.166f };
 
 	//define 36 indices for 12 triangles
 	unsigned int indices[36] =

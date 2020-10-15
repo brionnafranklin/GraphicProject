@@ -94,6 +94,12 @@ bool GraphicsApp::start()
 		return false;
 	}
 
+	if (!m_texture.load("earth_diffuse.jpg"))
+	{
+		printf("Failed to load texture ;~; \n");
+		return false;
+	}
+
 	//Initialize Gizmos
 	aie::Gizmos::create(10000, 10000, 10000, 10000);
 
@@ -103,7 +109,7 @@ bool GraphicsApp::start()
 	m_camera->setYaw(-135.0f);
 	m_camera->setPitch(-35.0f);
 
-	//Initialise the cube
+	//Initialise the mesh
 	m_mesh.initializeCube();
 
 	//set up the quad transform
@@ -201,6 +207,10 @@ bool GraphicsApp::draw()
 
 	//bind time
 	m_shader.bindUniform("timePassed", (float)glfwGetTime());
+
+	//bind texture
+	m_shader.bindUniform("diffuseTexture", 0);
+	m_texture.bind(0);
 
 	// draw quad
 	m_mesh.draw();
