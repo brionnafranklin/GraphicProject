@@ -17,9 +17,10 @@ public:
 	~Mesh();
 
 	void initialize(unsigned int vertexCount, const Vertex* vertices, unsigned int indexCount = 0, unsigned int* indices = nullptr);
-	void initializeQuad();
 
+	void initializeQuad();
 	void initializeCube();
+	void initializeIcosahedron();
 
 	virtual void draw();
 

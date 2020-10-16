@@ -12,6 +12,7 @@
 #include "Mesh.h"
 #include "OBJMesh.h"
 #include "Earth.h"
+#include "D20.h"
 
 class Camera;
 
@@ -55,6 +56,7 @@ protected:
 	aie::Texture m_texture;
 
 	Earth* m_earth;
+	D20* m_d20;
 
 	Bone* m_hipBone;
 	Bone* m_kneeBone;

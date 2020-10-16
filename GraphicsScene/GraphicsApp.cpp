@@ -113,6 +113,9 @@ bool GraphicsApp::start()
 	m_earth = new Earth({ 0.0f, 0.0f, 0.0f }, glm::vec3(1.0f, 0.0f, 0.0f), { 2.0f, 2.0f, 2.0f });
 	m_earth->start();
 
+	m_d20 = new D20({ 0.0f, 0.0f, 0.0f }, glm::vec3(1.0f, 0.0f, 0.0f), { 1.0f, 1.0f, 1.0f });
+	m_d20->start();
+
 	//set up the quad transform
 	m_transform =
 	{
@@ -203,7 +206,7 @@ bool GraphicsApp::draw()
 	m_shader.bind();
 
 	// bind transform
-	mat4 pvm = projectionMatrix * viewMatrix * m_earth->getTransform();
+	mat4 pvm = projectionMatrix * viewMatrix * m_d20->getTransform();
 	m_shader.bindUniform("ProjectionViewModel", pvm);
 
 	//bind texture
@@ -212,11 +215,14 @@ bool GraphicsApp::draw()
 	//bind time
 	m_shader.bindUniform("timePassed", (float)glfwGetTime());
 
+	//draw D20
+	m_d20->draw();
+
 	// draw earth
-	m_earth->draw();
+	//m_earth->draw();
 
 	//draw objMesh
-	m_objMesh.draw();
+	//m_objMesh.draw();
 
 	//m_skeleton->draw();
 	

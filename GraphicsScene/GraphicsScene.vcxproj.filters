@@ -48,6 +48,9 @@
     <ClCompile Include="Earth.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="D20.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GraphicsApp.h">
@@ -81,6 +84,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Earth.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D20.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

@@ -122,7 +122,6 @@ void Mesh::initializeQuad()
 
 void Mesh::initializeCube()
 {
-
 	//Define 8 vertices for 12 triangles
 	Vertex vertices[8];
 	//positions
@@ -180,6 +179,122 @@ void Mesh::initializeCube()
 	};
 
 	initialize(8, vertices, 36, indices);
+}
+
+void Mesh::initializeIcosahedron()
+{
+	//Define 12 vertices for 20 triangles
+	Vertex vertices[12];
+
+	//positions
+		//A
+	vertices[0].position = { 0.0f, 1.0f, 0.0f, 1 };
+		//B
+	vertices[1].position = { 1.0f, 0.5f, -0.5f, 1 };
+		//C
+	vertices[2].position = { 1.0f, -0.5f, 0.5f, 1 };
+		//D
+	vertices[3].position = { 0.0f, -1.0f, 0.0f, 1 };
+		//E
+	vertices[4].position = { -1.0f, -0.5f, 0.5f, 1 };
+		//F
+	vertices[5].position = { -1.0f, 0.5f, -0.5f, 1 };
+		//G
+	vertices[6].position = { 0.5f, 0.25f, 1.0f, 1 };
+		//H
+	vertices[7].position = { 0.0f, -0.5f, 1.0f, 1 };
+		//I
+	vertices[8].position = { 0.5f, 0.25f, 1.0f, 1 };
+		//J
+	vertices[9].position = { 0.0f, 0.5f, -1.0f, 1 };
+		//K
+	vertices[10].position = { -0.25f, -0.5f, -1.0f, 1 };
+		//L
+	vertices[11].position = { -0.25f, -0.5f, -1.0f, 1 };
+
+	//colors
+	glm::vec4 magenta = { 0.8f, 0.2f, 0.8f, 1 };
+	glm::vec4 pink = { 0.8f, 0.4f, 0.8f, 1 };
+	glm::vec4 white = { 1.0f, 1.0f, 1.0f, 1 };
+	glm::vec4 orange = { 0.8f, 0.4f, 0.4f, 1 };
+	glm::vec4 red = { 0.8f, 0.2f, 0.2f, 1 };
+		//A
+	vertices[0].color = white;
+		//B
+	vertices[1].color = white;
+		//C
+	vertices[2].color = magenta;
+		//D
+	vertices[3].color = white;
+		//E
+	vertices[4].color = white;
+		//F
+	vertices[5].color = red;
+		//G
+	vertices[6].color = white;
+		//H
+	vertices[7].color = white;
+		//I
+	vertices[8].color = white;
+		//J
+	vertices[9].color = white;
+		//K
+	vertices[10].color = white;
+		//L
+	vertices[11].color = white;
+
+	//TexCoord
+	//A
+	vertices[0].texCoord = { 0, 0 };
+	//B
+	vertices[1].texCoord = { 0, 0 };
+	//C
+	vertices[2].texCoord = { 0, 0 };
+	//D
+	vertices[3].texCoord = { 0, 0 };
+	//E
+	vertices[4].texCoord = { 0, 0 };
+	//F
+	vertices[5].texCoord = { 0, 0 };
+	//G
+	vertices[6].texCoord = { 0, 0 };
+	//H
+	vertices[7].texCoord = { 0, 0 };
+	//I
+	vertices[8].texCoord = { 0, 0 };
+	//J
+	vertices[9].texCoord = { 0, 0 };
+	//K
+	vertices[10].texCoord = { 0, 0 };
+	//L
+	vertices[11].texCoord = { 0, 0 };
+
+	//define 60 indices for 20 triangles
+	unsigned int indices[60] =
+	{
+		9, 11, 10,  //JLK (1)
+		8, 2, 7,    //ICH (2)
+		0, 9, 5,    //AJF (3)
+		4, 7, 3,    //EHD (4)
+		11, 2, 3,   //LCD (5)
+		5, 10, 4,   //FKE (6)
+		9, 1, 11,   //JBL (7)
+		0, 8, 6,    //AIG (8)
+		5, 6, 4,    //FGE (9)
+		0, 1, 8,    //ABI (10)
+		3, 7, 3,    //EHD (11)
+		1, 2, 8,    //BCI (12)
+		10, 11, 3,  //KLD (13)
+		6, 7, 4,    //GHE (14)
+		1, 2, 8,    //BCI (15)
+		0, 6, 5,    //AGF (16)
+		0, 1, 9,    //ABJ (17)
+		7, 2, 3,    //HCD (18)
+		5, 9, 10,   //FJK (19)
+		6, 8, 7,    //GIH (20)
+	};
+
+	initialize(12, vertices, 60, indices);
 }
 
 
