@@ -172,6 +172,9 @@ bool GraphicsApp::update(double deltaTime)
 	// rotate light
 	m_light.setDirection(glm::normalize(glm::vec3(glm::cos(time * 2), 0, glm::sin(time * 2))));
 
+	m_light.setAmbient({ 0.2f, 0.2f , 0.2f });
+	m_light.setDiffuse({ 0.8f, 0.8f, 0.8f });
+
 	m_skeleton->update(deltaTime);
 
 	return true;
@@ -211,6 +214,9 @@ bool GraphicsApp::draw()
 	m_shader.bind();
 
 	// bind light
+	m_shader.bindUniform("Ia", m_light.getAmbient());
+	m_shader.bindUniform("Id", m_light.getDiffuse());
+	m_shader.bindUniform("Is", m_light.getSpecular());
 	m_shader.bindUniform("LightDirection", m_light.getDirection());
 
 	// bind transform
