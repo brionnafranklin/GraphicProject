@@ -95,9 +95,9 @@ bool GraphicsApp::start()
 	}
 
 
-	if (!m_objMesh.load("soulspear.obj"))
+	if (!m_objMesh.load("Dragon.obj"))
 	{
-		printf("Failed to Load soulspear.obj \n");
+		printf("Failed to Load Dragon.obj \n");
 		return false;
 	}
 
@@ -153,6 +153,10 @@ bool GraphicsApp::start()
 	m_skeleton->addBone(m_kneeBone);
 	m_skeleton->addBone(m_ankleBone);
 
+	m_light.setAmbient({ 0.2f, 0.2f , 0.2f });
+	m_light.setDiffuse({ 0.8f, 0.8f, 0.8f });
+	m_light.setSpecular({ 0.8f, 0.2f, 0.2f });
+
 	return true;
 }
 
@@ -170,10 +174,7 @@ bool GraphicsApp::update(double deltaTime)
 	float time = glfwGetTime();
 
 	// rotate light
-	m_light.setDirection(glm::normalize(glm::vec3(glm::cos(time * 2), 0, glm::sin(time * 2))));
-
-	m_light.setAmbient({ 0.2f, 0.2f , 0.2f });
-	m_light.setDiffuse({ 0.8f, 0.8f, 0.8f });
+	m_light.setDirection(glm::normalize(glm::vec3(glm::cos(time * 2), -1, glm::sin(time * 2))));
 
 	m_skeleton->update(deltaTime);
 
@@ -213,6 +214,8 @@ bool GraphicsApp::draw()
 	// bind shader
 	m_shader.bind();
 
+	m_shader.bindUniform("CameraPosition", m_camera->getPosition());
+
 	// bind light
 	m_shader.bindUniform("Ia", m_light.getAmbient());
 	m_shader.bindUniform("Id", m_light.getDiffuse());
@@ -220,12 +223,13 @@ bool GraphicsApp::draw()
 	m_shader.bindUniform("LightDirection", m_light.getDirection());
 
 	// bind transform
-	mat4 pvm = projectionMatrix * viewMatrix * m_d20->getTransform();
+	mat4 pvm = projectionMatrix * viewMatrix * m_earth->getTransform();
 	m_shader.bindUniform("ProjectionViewModel", pvm);
 
 	// bind transforms for lighting
 	m_shader.bindUniform("NormalMatrix",
 		glm::inverseTranspose(glm::mat3(m_earth->getTransform())));
+	m_shader.bindUniform("ModelMatrix", m_earth->getTransform());
 
 	//bind texture
 	//m_shader.bindUniform("diffuseTexture", 0);
@@ -240,7 +244,7 @@ bool GraphicsApp::draw()
 	m_earth->draw();
 
 	//draw objMesh
-	//m_objMesh.draw();
+	m_objMesh.draw();
 
 	//m_skeleton->draw();
 	
