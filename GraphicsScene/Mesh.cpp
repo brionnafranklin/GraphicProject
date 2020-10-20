@@ -41,15 +41,15 @@ void Mesh::initialize(unsigned int vertexCount, const Vertex* vertices, unsigned
 		0
 	);
 
-	//Enable second element as color
-	glEnableVertexAttribArray(4);
+	// Enable second element as normal
+		glEnableVertexAttribArray(1);
 	glVertexAttribPointer(
-		4,
+		1,
 		4,
 		GL_FLOAT,
-		GL_FALSE,
+		GL_TRUE,
 		sizeof(Vertex),
-		(GLvoid*)(8 * sizeof(float))
+		(GLvoid*)(4 * sizeof(float))
 	);
 
 	//enable third element as textCoord
@@ -61,6 +61,17 @@ void Mesh::initialize(unsigned int vertexCount, const Vertex* vertices, unsigned
 		GL_FALSE,
 		sizeof(Vertex),
 		(GLvoid*)(12 * sizeof(float))
+	);
+
+	//Enable fourth element as color
+	glEnableVertexAttribArray(4);
+	glVertexAttribPointer(
+		4,
+		4,
+		GL_FLOAT,
+		GL_FALSE,
+		sizeof(Vertex),
+		(GLvoid*)(8 * sizeof(float))
 	);
 
 	// bind indices if there are any
@@ -99,6 +110,11 @@ void Mesh::initializeQuad()
 	vertices[1].position = { 0.5f, 0.0f, 0.5f, 1 };
 	vertices[2].position = { -0.5f, 0.0f, -0.5f, 1 };
 	vertices[3].position = { 0.5f, 0.0f, -0.5f, 1 };
+	//normals
+	vertices[0].normal = { -1.0f, 0.0f, 1.0f, 1 };
+	vertices[1].normal = { 1.0f, 0.0f, 1.0f, 1 };
+	vertices[2].normal = { -1.0f, 0.0f, -1.0f, 1 };
+	vertices[3].normal = { 1.0f, 0.0f, -1.0f, 1 };
 	//colors
 	vertices[0].color = { 0.8f, 0.2f, 0.8f, 1 }; // magenta		//green 0.2f, 0.8f, 0.2f, 1
 	vertices[1].color = { 1.0f, 1.0f, 1.0f, 1 }; //	white	//magenta 0.8f, 0.2f, 0.8f, 1

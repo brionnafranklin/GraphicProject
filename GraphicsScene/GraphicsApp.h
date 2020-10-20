@@ -4,6 +4,7 @@
 #include <Gizmos.h>
 #include <glm/glm.hpp>
 #include <glm/ext.hpp>
+#include "Light.h"
 #include "RotatingSphere.h"
 #include "Bone.h"
 #include "Skeleton.h"
@@ -47,6 +48,8 @@ protected:
 	//Actor *m_startActor, *m_endActor;
 
 	aie::ShaderProgram m_shader;
+
+	Light m_light;
 
 	aie::OBJMesh m_objMesh;
 	aie::Texture m_objTexture;

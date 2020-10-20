@@ -51,6 +51,9 @@
     <ClCompile Include="D20.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Light.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GraphicsApp.h">
@@ -89,6 +92,9 @@
     <ClInclude Include="D20.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Light.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="simple.vert">
@@ -110,6 +116,12 @@
       <Filter>Resource Files</Filter>
     </None>
     <None Include="soulspear.mtl">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="phong.vert">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="phong.frag">
       <Filter>Resource Files</Filter>
     </None>
   </ItemGroup>

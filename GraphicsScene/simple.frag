@@ -11,6 +11,7 @@ out vec4 FragColor;
 void main()
 {
 	// float color = (vertexColor.x + vertexColor.y + vertexColor.z) / 3;
-	FragColor = vColor;
-	//FragColor = texture(diffuseTexture, vTexCoord);
+	// FragColor = vColor;
+	// FragColor = texture(diffuseTexture, vTexCoord);
+	FragColor = texture(diffuseTexture, vTexCoord) + vColor;
 }

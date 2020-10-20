@@ -86,9 +86,9 @@ bool GraphicsApp::start()
 
 	//Initialize Shader
 	m_shader.loadShader(aie::eShaderStage::VERTEX,
-		"simple.vert");
+		"phong.vert");
 	m_shader.loadShader(aie::eShaderStage::FRAGMENT,
-		"simple.frag");
+		"phong.frag");
 	if (!m_shader.link()) {
 		printf("Shader Error: %s\n", m_shader.getLastError());
 		return false;
@@ -110,10 +110,10 @@ bool GraphicsApp::start()
 	m_camera->setYaw(-135.0f);
 	m_camera->setPitch(-35.0f);
 
-	m_earth = new Earth({ 0.0f, 0.0f, 0.0f }, glm::vec3(1.0f, 0.0f, 0.0f), { 2.0f, 2.0f, 2.0f });
+	m_earth = new Earth({ 0.0f, 0.0f, 0.0f }, glm::vec3(0.0f, 0.0f, 0.0f), { 10.0f, 10.0f, 10.0f });
 	m_earth->start();
 
-	m_d20 = new D20({ 0.0f, 0.0f, 0.0f }, glm::vec3(1.0f, 0.0f, 0.0f), { 2.0f, 2.0f, 2.0f });
+	m_d20 = new D20({ 0.0f, 0.0f, 0.0f }, glm::vec3(0.0f, 0.0f, 0.0f), { 2.0f, 2.0f, 2.0f });
 	m_d20->start();
 
 	//set up the quad transform
@@ -167,6 +167,11 @@ bool GraphicsApp::update(double deltaTime)
 
 	m_camera->update(deltaTime);
 
+	float time = glfwGetTime();
+
+	// rotate light
+	m_light.setDirection(glm::normalize(glm::vec3(glm::cos(time * 2), 0, glm::sin(time * 2))));
+
 	m_skeleton->update(deltaTime);
 
 	return true;
@@ -205,15 +210,22 @@ bool GraphicsApp::draw()
 	// bind shader
 	m_shader.bind();
 
+	// bind light
+	m_shader.bindUniform("LightDirection", m_light.getDirection());
+
 	// bind transform
 	mat4 pvm = projectionMatrix * viewMatrix * m_d20->getTransform();
 	m_shader.bindUniform("ProjectionViewModel", pvm);
 
+	// bind transforms for lighting
+	m_shader.bindUniform("NormalMatrix",
+		glm::inverseTranspose(glm::mat3(m_earth->getTransform())));
+
 	//bind texture
-	m_shader.bindUniform("diffuseTexture", 0);
+	//m_shader.bindUniform("diffuseTexture", 0);
 
 	//bind time
-	m_shader.bindUniform("timePassed", (float)glfwGetTime());
+	//m_shader.bindUniform("timePassed", (float)glfwGetTime());
 
 	//draw D20
 	//m_d20->draw();
