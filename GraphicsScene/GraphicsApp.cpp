@@ -113,7 +113,7 @@ bool GraphicsApp::start()
 	m_earth = new Earth({ 0.0f, 0.0f, 0.0f }, glm::vec3(1.0f, 0.0f, 0.0f), { 2.0f, 2.0f, 2.0f });
 	m_earth->start();
 
-	m_d20 = new D20({ 0.0f, 0.0f, 0.0f }, glm::vec3(1.0f, 0.0f, 0.0f), { 1.0f, 1.0f, 1.0f });
+	m_d20 = new D20({ 0.0f, 0.0f, 0.0f }, glm::vec3(1.0f, 0.0f, 0.0f), { 2.0f, 2.0f, 2.0f });
 	m_d20->start();
 
 	//set up the quad transform

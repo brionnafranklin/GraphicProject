@@ -188,19 +188,19 @@ void Mesh::initializeIcosahedron()
 
 	//positions
 		//A
-	vertices[0].position = { 0.0f, 1.0f, 0.0f, 1 };
+	vertices[0].position = { 0.0f, 1.0f, 0.25f, 1 };
 		//B
-	vertices[1].position = { 1.0f, 0.5f, -0.5f, 1 };
+	vertices[1].position = { 1.0f, 0.5f, -0.25f, 1 };
 		//C
-	vertices[2].position = { 1.0f, -0.5f, 0.5f, 1 };
+	vertices[2].position = { 1.0f, -0.5f, 0.25f, 1 };
 		//D
-	vertices[3].position = { 0.0f, -1.0f, 0.0f, 1 };
+	vertices[3].position = { 0.0f, -1.0f, -0.25f, 1 };
 		//E
-	vertices[4].position = { -1.0f, -0.5f, 0.5f, 1 };
+	vertices[4].position = { -1.0f, -0.5f, 0.25f, 1 };
 		//F
-	vertices[5].position = { -1.0f, 0.5f, -0.5f, 1 };
+	vertices[5].position = { -1.0f, 0.5f, -0.25f, 1 };
 		//G
-	vertices[6].position = { 0.5f, 0.25f, 1.0f, 1 };
+	vertices[6].position = { -0.5f, 0.25f, 1.0f, 1 };
 		//H
 	vertices[7].position = { 0.0f, -0.5f, 1.0f, 1 };
 		//I
@@ -208,9 +208,9 @@ void Mesh::initializeIcosahedron()
 		//J
 	vertices[9].position = { 0.0f, 0.5f, -1.0f, 1 };
 		//K
-	vertices[10].position = { -0.25f, -0.5f, -1.0f, 1 };
+	vertices[10].position = { -0.5f, -0.25f, -1.0f, 1 };
 		//L
-	vertices[11].position = { -0.25f, -0.5f, -1.0f, 1 };
+	vertices[11].position = { 0.5f, -0.25f, -1.0f, 1 };
 
 	//colors
 	glm::vec4 magenta = { 0.8f, 0.2f, 0.8f, 1 };
