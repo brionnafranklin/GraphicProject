@@ -216,10 +216,10 @@ bool GraphicsApp::draw()
 	m_shader.bindUniform("timePassed", (float)glfwGetTime());
 
 	//draw D20
-	m_d20->draw();
+	//m_d20->draw();
 
 	// draw earth
-	//m_earth->draw();
+	m_earth->draw();
 
 	//draw objMesh
 	//m_objMesh.draw();

@@ -10,7 +10,7 @@ Earth::Earth(glm::vec3 position, glm::quat rotation, glm::vec3 scale)
 bool Earth::start()
 {
 	//Initialise the mesh
-	m_mesh.initializeCube();
+	m_mesh.initializeQuad();
 
 	if (!m_texture.load("earth_diffuse.jpg"))
 	{
