@@ -1,5 +1,6 @@
 #include "Actor.h"
 
+/// Constructor; sets position, rotation, and scale
 Actor::Actor(glm::vec3 position, glm::quat rotation, glm::vec3 scale)
 {
     m_position = position;
@@ -7,6 +8,7 @@ Actor::Actor(glm::vec3 position, glm::quat rotation, glm::vec3 scale)
     m_scale = scale;
 }
 
+/// Returns position, rotation, scale
 glm::mat4 Actor::getTransform()
 {
     if (m_parent) {
@@ -16,6 +18,7 @@ glm::mat4 Actor::getTransform()
     return glm::translate(m_position) * glm::toMat4(m_rotation) * glm::scale(m_scale);
 }
 
+/// Returns the parent's position
 glm::vec3 Actor::getParentPosition()
 {
     if (m_parent) {
@@ -25,6 +28,7 @@ glm::vec3 Actor::getParentPosition()
     return glm::vec3(0.0f);
 }
 
+/// Returns the parent's rotation
 glm::quat Actor::getParentRotation()
 {
     if (m_parent) {

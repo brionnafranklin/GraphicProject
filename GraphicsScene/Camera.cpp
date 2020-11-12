@@ -1,5 +1,6 @@
 #include "Camera.h"
 
+/// Return where the camera is looking
 glm::mat4 Camera::getViewMatrix()
 {
 	float yawRadians = glm::radians(m_yaw);
@@ -8,6 +9,7 @@ glm::mat4 Camera::getViewMatrix()
 	return glm::lookAt(m_position, m_position + forward, glm::vec3(0.0f, 1.0f, 0.0f));
 }
 
+/// Returns the projection
 glm::mat4 Camera::getProjectionMatrix(float width, float height)
 {
 	return glm::perspective(glm::pi<float>() * 0.25f,
@@ -15,6 +17,7 @@ glm::mat4 Camera::getProjectionMatrix(float width, float height)
 		0.1f, 1000.f);
 }
 
+/// Ipdates position based on input
 bool Camera::update(double deltaTime)
 {
 	int keyForward = GLFW_KEY_W;

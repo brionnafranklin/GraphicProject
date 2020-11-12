@@ -1,5 +1,6 @@
 #include "Earth.h"
 
+/// Constructor; sets position, rotation, and scale using given values
 Earth::Earth(glm::vec3 position, glm::quat rotation, glm::vec3 scale)
 {
 	m_position = position;
@@ -7,6 +8,7 @@ Earth::Earth(glm::vec3 position, glm::quat rotation, glm::vec3 scale)
 	m_scale = scale;
 }
 
+/// Initializes the mesh
 bool Earth::start()
 {
 	//Initialise the mesh
@@ -20,6 +22,7 @@ bool Earth::start()
 	return true;
 }
 
+/// Binds the texture and draws the mesh
 bool Earth::draw()
 {
 	m_texture.bind(0);

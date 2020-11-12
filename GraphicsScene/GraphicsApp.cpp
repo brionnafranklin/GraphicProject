@@ -95,9 +95,9 @@ bool GraphicsApp::start()
 	}
 
 
-	if (!m_objMesh.load("Dragon.obj"))
+	if (!m_objMesh.load("Bunny.obj"))
 	{
-		printf("Failed to Load Dragon.obj \n");
+		printf("Failed to Load Bunny.obj \n");
 		return false;
 	}
 
@@ -153,9 +153,9 @@ bool GraphicsApp::start()
 	m_skeleton->addBone(m_kneeBone);
 	m_skeleton->addBone(m_ankleBone);
 
-	m_light.setAmbient({ 0.2f, 0.2f , 0.2f });
+	m_light.setAmbient({ 0.8f, 0.6f , 0.6f });
 	m_light.setDiffuse({ 0.8f, 0.8f, 0.8f });
-	m_light.setSpecular({ 0.8f, 0.2f, 0.2f });
+	m_light.setSpecular({ 0.8f, 0.4f, 0.4f });
 
 	return true;
 }
@@ -241,7 +241,7 @@ bool GraphicsApp::draw()
 	//m_d20->draw();
 
 	// draw earth
-	m_earth->draw();
+	//m_earth->draw();
 
 	//draw objMesh
 	m_objMesh.draw();

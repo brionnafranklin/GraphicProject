@@ -2,12 +2,14 @@
 #include <GLFW/glfw3.h>
 #include <Gizmos.h>
 
+/// Constructor; sets an actor for start frame and an actor for end frame
 Bone::Bone(Actor startFrame, Actor endFrame)
 {
 	m_startFrame = startFrame;
 	m_endFrame = endFrame;
 }
 
+/// Updates position and rotation
 bool Bone::update(double deltaTime)
 {
 	//Find a time-based value in the range of [0, 1]
@@ -29,6 +31,7 @@ bool Bone::update(double deltaTime)
 	return true;
 }
 
+/// Draws this Bone
 bool Bone::draw()
 {
 	//Build a transform matrix
