@@ -21,11 +21,15 @@ using glm::vec3;
 using glm::vec4;
 using glm::mat4;
 
+/// Where most the program logic happens
 class GraphicsApp
 {
 public:
+	/// Sets up the default window
 	GraphicsApp();
+	/// Sets up the window using given width, height and title
 	GraphicsApp(int width, int height, const char* title);
+	/// Default deconstructer
 	~GraphicsApp();
 
 	int run();

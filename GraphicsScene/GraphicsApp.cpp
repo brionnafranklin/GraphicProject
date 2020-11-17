@@ -2,6 +2,7 @@
 #include "Camera.h"
 #include <cstdio>
 
+/// Sets up the default window
 GraphicsApp::GraphicsApp()
 {
 	m_width = 1280;
@@ -9,6 +10,7 @@ GraphicsApp::GraphicsApp()
 	m_title = "Computer Graphics";
 }
 
+/// Sets up the window using given width, height and title
 GraphicsApp::GraphicsApp(int width, int height, const char* title)
 {
 	m_width = width;
@@ -16,10 +18,12 @@ GraphicsApp::GraphicsApp(int width, int height, const char* title)
 	m_title = title;
 }
 
+/// Default deconstructer
 GraphicsApp::~GraphicsApp()
 {
 }
 
+/// Main loop
 int GraphicsApp::run()
 {
 	bool updating = true;
@@ -49,6 +53,7 @@ int GraphicsApp::run()
 	return 0;
 }
 
+/// 
 bool GraphicsApp::start()
 {
 	using glm::vec3;
