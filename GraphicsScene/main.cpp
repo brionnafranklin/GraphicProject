@@ -6,6 +6,7 @@
 #include <glm/ext.hpp>
 #include "GraphicsApp.h"
 
+/// Main game loop
 int main() 
 {
 	GraphicsApp* app = new GraphicsApp(1536, 864, "Computer Graphics");

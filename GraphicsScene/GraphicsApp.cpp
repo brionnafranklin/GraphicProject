@@ -53,7 +53,7 @@ int GraphicsApp::run()
 	return 0;
 }
 
-/// 
+/// Inistializes everything
 bool GraphicsApp::start()
 {
 	using glm::vec3;
@@ -165,6 +165,7 @@ bool GraphicsApp::start()
 	return true;
 }
 
+/// Updates everything on screen
 bool GraphicsApp::update(double deltaTime)
 {
 	glfwPollEvents();
@@ -186,6 +187,7 @@ bool GraphicsApp::update(double deltaTime)
 	return true;
 }
 
+/// Draws everything to the screen
 bool GraphicsApp::draw()
 {
 	using glm::vec3;
@@ -260,6 +262,7 @@ bool GraphicsApp::draw()
 	return true;
 }
 
+/// Deletes, destores, and closes everything
 bool GraphicsApp::end()
 {
 	//delete m_rotatingSphere;

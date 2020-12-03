@@ -1,6 +1,7 @@
 #include "Mesh.h"
 #include <gl_core_4_4.h>
 
+/// Default deconstucter
 Mesh::~Mesh()
 {
 	glDeleteVertexArrays(1, &m_vao);
@@ -8,6 +9,7 @@ Mesh::~Mesh()
 	glDeleteBuffers(1, &m_ibo);
 }
 
+/// Initialized and object
 void Mesh::initialize(unsigned int vertexCount, const Vertex* vertices, unsigned int indexCount, unsigned int* indices)
 {
 	//Check that the mesh is not already initialized
@@ -100,6 +102,7 @@ void Mesh::initialize(unsigned int vertexCount, const Vertex* vertices, unsigned
 
 }
 
+/// Initializes a quadilateral
 void Mesh::initializeQuad()
 {
 
@@ -136,6 +139,7 @@ void Mesh::initializeQuad()
 	initialize(4, vertices, 6, indices);
 }
 
+/// Initializes a cube
 void Mesh::initializeCube()
 {
 	//Define 8 vertices for 12 triangles
@@ -197,6 +201,7 @@ void Mesh::initializeCube()
 	initialize(8, vertices, 36, indices);
 }
 
+/// Initializes an Icoscahedron
 void Mesh::initializeIcosahedron()
 {
 	//Define 12 vertices for 20 triangles
@@ -313,7 +318,7 @@ void Mesh::initializeIcosahedron()
 	initialize(12, vertices, 60, indices);
 }
 
-
+/// Draws the object that was initialized
 void Mesh::draw()
 {
 	glBindVertexArray(m_vao);
