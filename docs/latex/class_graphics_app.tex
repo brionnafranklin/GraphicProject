@@ -1,0 +1,359 @@
+\hypertarget{class_graphics_app}{}\doxysection{Graphics\+App Class Reference}
+\label{class_graphics_app}\index{GraphicsApp@{GraphicsApp}}
+
+
+Where most the program logic happens.  
+
+
+
+
+{\ttfamily \#include $<$Graphics\+App.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_graphics_app_a4eb7691aebc94ae73846e411d6de5a62}{Graphics\+App}} ()
+\begin{DoxyCompactList}\small\item\em Sets up the default window. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_graphics_app_aaa815d9c239b286573b459bb52284379}{Graphics\+App}} (int width, int height, const char $\ast$title)
+\begin{DoxyCompactList}\small\item\em Sets up the window using given width, height and title. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_graphics_app_a1b572cac5d40be44e80f3dc3696ebc8b}{$\sim$\+Graphics\+App}} ()
+\begin{DoxyCompactList}\small\item\em Default deconstructer. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_graphics_app_a26e58e2ebce3a4825da5ce19ffb47bf6}{run}} ()
+\begin{DoxyCompactList}\small\item\em Main loop. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_graphics_app_ab7c568d200de5c7cfafda82ed3d28cd5}{start}} ()
+\begin{DoxyCompactList}\small\item\em Inistializes everything. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_graphics_app_a0e9a882f26d9ba142e7b66b9b487aced}{update}} (double delta\+Time)
+\begin{DoxyCompactList}\small\item\em Updates everything on screen. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_graphics_app_aee549c0cb1302a4a48176cf6265b8787}{draw}} ()
+\begin{DoxyCompactList}\small\item\em Draws everything to the screen. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_graphics_app_af3e942734aaefa6bddb3f9f55702d5e5}{end}} ()
+\begin{DoxyCompactList}\small\item\em Deletes, destores, and closes everything. \end{DoxyCompactList}\item 
+G\+L\+F\+Wwindow $\ast$ \mbox{\hyperlink{class_graphics_app_ac9eff28e296febca4137f208fa6e4d66}{get\+Window}} ()
+\begin{DoxyCompactList}\small\item\em Returns the window. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_graphics_app_a9bdfc775bba2aa7c0a124c927de86bc7}{get\+Width}} ()
+\begin{DoxyCompactList}\small\item\em Returns the width of the window. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_graphics_app_a00b9cf4283723a1a2dfbcefe1c33d853}{get\+Height}} ()
+\begin{DoxyCompactList}\small\item\em Returns the height of the window. \end{DoxyCompactList}\item 
+const char $\ast$ \mbox{\hyperlink{class_graphics_app_ad6b84767fb0464426deca121e7729eeb}{get\+Title}} ()
+\begin{DoxyCompactList}\small\item\em Returns the title of the window. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+G\+L\+F\+Wwindow $\ast$ \mbox{\hyperlink{class_graphics_app_a81b76ac377fdf4b3649b25a7c34afb6a}{m\+\_\+window}}
+\begin{DoxyCompactList}\small\item\em Stores the window. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_camera}{Camera}} $\ast$ \mbox{\hyperlink{class_graphics_app_a2bf4bd0bb4a6f7cb6e7c4eefdd611dbf}{m\+\_\+camera}}
+\begin{DoxyCompactList}\small\item\em The main camera; Controls where the user is looking. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classaie_1_1_shader_program}{aie\+::\+Shader\+Program}} \mbox{\hyperlink{class_graphics_app_af43571ecae5bb52a1f9abaf990fd1386}{m\+\_\+shader}}
+\begin{DoxyCompactList}\small\item\em The shader. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_light}{Light}} \mbox{\hyperlink{class_graphics_app_ab23e234e56f16309b17f45d7b9a3e4be}{m\+\_\+light}}
+\begin{DoxyCompactList}\small\item\em The light that is shining on the object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classaie_1_1_o_b_j_mesh}{aie\+::\+O\+B\+J\+Mesh}} \mbox{\hyperlink{class_graphics_app_a2a6f21652c2304a04b390f8f31d38f6d}{m\+\_\+obj\+Mesh}}
+\begin{DoxyCompactList}\small\item\em The mesh of the object that\textquotesingle{}s being rendered. \end{DoxyCompactList}\item 
+aie\+::\+Texture \mbox{\hyperlink{class_graphics_app_a267a0a8a1ad9500c59acbc797789b035}{m\+\_\+obj\+Texture}}
+\begin{DoxyCompactList}\small\item\em The texture of the object that\textquotesingle{}s being rendered. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_mesh}{Mesh}} \mbox{\hyperlink{class_graphics_app_a2d0da017e4249eaf9158a176be78f998}{m\+\_\+mesh}}
+\begin{DoxyCompactList}\small\item\em The mesh used to render a shape. \end{DoxyCompactList}\item 
+glm\+::mat4 \mbox{\hyperlink{class_graphics_app_af29550211245022eae3323f3bd0b0237}{m\+\_\+transform}}
+\begin{DoxyCompactList}\small\item\em The transform of the object. \end{DoxyCompactList}\item 
+aie\+::\+Texture \mbox{\hyperlink{class_graphics_app_a2b8db3da15cece807a56aa10c27cda5c}{m\+\_\+texture}}
+\begin{DoxyCompactList}\small\item\em The texture of the rendered shape. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_earth}{Earth}} $\ast$ \mbox{\hyperlink{class_graphics_app_a4409cbcf9a3084575cc7831fc0bda65e}{m\+\_\+earth}}
+\begin{DoxyCompactList}\small\item\em A plane. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_d20}{D20}} $\ast$ \mbox{\hyperlink{class_graphics_app_a12199932e4a1a1df9fdcd3f97bd42eac}{m\+\_\+d20}}
+\begin{DoxyCompactList}\small\item\em An Icosahedron. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_bone}{Bone}} $\ast$ \mbox{\hyperlink{class_graphics_app_a7e89e1a4563fc431ac1306ffd82202e8}{m\+\_\+hip\+Bone}}
+\begin{DoxyCompactList}\small\item\em The top bone that makes up the skeleton. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_bone}{Bone}} $\ast$ \mbox{\hyperlink{class_graphics_app_aa8c282914e07f309a5e6f0fcad7c86fd}{m\+\_\+knee\+Bone}}
+\begin{DoxyCompactList}\small\item\em The middle bone that makes up the skeleton. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_bone}{Bone}} $\ast$ \mbox{\hyperlink{class_graphics_app_aa1aea634af9d6000792eea8a65e81fb7}{m\+\_\+ankle\+Bone}}
+\begin{DoxyCompactList}\small\item\em The bottom bone that makes up the skeleton. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_skeleton}{Skeleton}} $\ast$ \mbox{\hyperlink{class_graphics_app_a04db9329016246665b02f2cfcc399671}{m\+\_\+skeleton}}
+\begin{DoxyCompactList}\small\item\em Made up of the hip bone, the knee bone, and the ankle bone. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Where most the program logic happens. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_graphics_app_a4eb7691aebc94ae73846e411d6de5a62}\label{class_graphics_app_a4eb7691aebc94ae73846e411d6de5a62}} 
+\index{GraphicsApp@{GraphicsApp}!GraphicsApp@{GraphicsApp}}
+\index{GraphicsApp@{GraphicsApp}!GraphicsApp@{GraphicsApp}}
+\doxysubsubsection{\texorpdfstring{GraphicsApp()}{GraphicsApp()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Graphics\+App\+::\+Graphics\+App (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Sets up the default window. 
+
+\mbox{\Hypertarget{class_graphics_app_aaa815d9c239b286573b459bb52284379}\label{class_graphics_app_aaa815d9c239b286573b459bb52284379}} 
+\index{GraphicsApp@{GraphicsApp}!GraphicsApp@{GraphicsApp}}
+\index{GraphicsApp@{GraphicsApp}!GraphicsApp@{GraphicsApp}}
+\doxysubsubsection{\texorpdfstring{GraphicsApp()}{GraphicsApp()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Graphics\+App\+::\+Graphics\+App (\begin{DoxyParamCaption}\item[{int}]{width,  }\item[{int}]{height,  }\item[{const char $\ast$}]{title }\end{DoxyParamCaption})}
+
+
+
+Sets up the window using given width, height and title. 
+
+\mbox{\Hypertarget{class_graphics_app_a1b572cac5d40be44e80f3dc3696ebc8b}\label{class_graphics_app_a1b572cac5d40be44e80f3dc3696ebc8b}} 
+\index{GraphicsApp@{GraphicsApp}!````~GraphicsApp@{$\sim$GraphicsApp}}
+\index{````~GraphicsApp@{$\sim$GraphicsApp}!GraphicsApp@{GraphicsApp}}
+\doxysubsubsection{\texorpdfstring{$\sim$GraphicsApp()}{~GraphicsApp()}}
+{\footnotesize\ttfamily Graphics\+App\+::$\sim$\+Graphics\+App (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Default deconstructer. 
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_graphics_app_aee549c0cb1302a4a48176cf6265b8787}\label{class_graphics_app_aee549c0cb1302a4a48176cf6265b8787}} 
+\index{GraphicsApp@{GraphicsApp}!draw@{draw}}
+\index{draw@{draw}!GraphicsApp@{GraphicsApp}}
+\doxysubsubsection{\texorpdfstring{draw()}{draw()}}
+{\footnotesize\ttfamily bool Graphics\+App\+::draw (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Draws everything to the screen. 
+
+\mbox{\Hypertarget{class_graphics_app_af3e942734aaefa6bddb3f9f55702d5e5}\label{class_graphics_app_af3e942734aaefa6bddb3f9f55702d5e5}} 
+\index{GraphicsApp@{GraphicsApp}!end@{end}}
+\index{end@{end}!GraphicsApp@{GraphicsApp}}
+\doxysubsubsection{\texorpdfstring{end()}{end()}}
+{\footnotesize\ttfamily bool Graphics\+App\+::end (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Deletes, destores, and closes everything. 
+
+\mbox{\Hypertarget{class_graphics_app_a00b9cf4283723a1a2dfbcefe1c33d853}\label{class_graphics_app_a00b9cf4283723a1a2dfbcefe1c33d853}} 
+\index{GraphicsApp@{GraphicsApp}!getHeight@{getHeight}}
+\index{getHeight@{getHeight}!GraphicsApp@{GraphicsApp}}
+\doxysubsubsection{\texorpdfstring{getHeight()}{getHeight()}}
+{\footnotesize\ttfamily int Graphics\+App\+::get\+Height (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns the height of the window. 
+
+\mbox{\Hypertarget{class_graphics_app_ad6b84767fb0464426deca121e7729eeb}\label{class_graphics_app_ad6b84767fb0464426deca121e7729eeb}} 
+\index{GraphicsApp@{GraphicsApp}!getTitle@{getTitle}}
+\index{getTitle@{getTitle}!GraphicsApp@{GraphicsApp}}
+\doxysubsubsection{\texorpdfstring{getTitle()}{getTitle()}}
+{\footnotesize\ttfamily const char$\ast$ Graphics\+App\+::get\+Title (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns the title of the window. 
+
+\mbox{\Hypertarget{class_graphics_app_a9bdfc775bba2aa7c0a124c927de86bc7}\label{class_graphics_app_a9bdfc775bba2aa7c0a124c927de86bc7}} 
+\index{GraphicsApp@{GraphicsApp}!getWidth@{getWidth}}
+\index{getWidth@{getWidth}!GraphicsApp@{GraphicsApp}}
+\doxysubsubsection{\texorpdfstring{getWidth()}{getWidth()}}
+{\footnotesize\ttfamily int Graphics\+App\+::get\+Width (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns the width of the window. 
+
+\mbox{\Hypertarget{class_graphics_app_ac9eff28e296febca4137f208fa6e4d66}\label{class_graphics_app_ac9eff28e296febca4137f208fa6e4d66}} 
+\index{GraphicsApp@{GraphicsApp}!getWindow@{getWindow}}
+\index{getWindow@{getWindow}!GraphicsApp@{GraphicsApp}}
+\doxysubsubsection{\texorpdfstring{getWindow()}{getWindow()}}
+{\footnotesize\ttfamily G\+L\+F\+Wwindow$\ast$ Graphics\+App\+::get\+Window (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns the window. 
+
+\mbox{\Hypertarget{class_graphics_app_a26e58e2ebce3a4825da5ce19ffb47bf6}\label{class_graphics_app_a26e58e2ebce3a4825da5ce19ffb47bf6}} 
+\index{GraphicsApp@{GraphicsApp}!run@{run}}
+\index{run@{run}!GraphicsApp@{GraphicsApp}}
+\doxysubsubsection{\texorpdfstring{run()}{run()}}
+{\footnotesize\ttfamily int Graphics\+App\+::run (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Main loop. 
+
+\mbox{\Hypertarget{class_graphics_app_ab7c568d200de5c7cfafda82ed3d28cd5}\label{class_graphics_app_ab7c568d200de5c7cfafda82ed3d28cd5}} 
+\index{GraphicsApp@{GraphicsApp}!start@{start}}
+\index{start@{start}!GraphicsApp@{GraphicsApp}}
+\doxysubsubsection{\texorpdfstring{start()}{start()}}
+{\footnotesize\ttfamily bool Graphics\+App\+::start (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Inistializes everything. 
+
+\mbox{\Hypertarget{class_graphics_app_a0e9a882f26d9ba142e7b66b9b487aced}\label{class_graphics_app_a0e9a882f26d9ba142e7b66b9b487aced}} 
+\index{GraphicsApp@{GraphicsApp}!update@{update}}
+\index{update@{update}!GraphicsApp@{GraphicsApp}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily bool Graphics\+App\+::update (\begin{DoxyParamCaption}\item[{double}]{delta\+Time }\end{DoxyParamCaption})}
+
+
+
+Updates everything on screen. 
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_graphics_app_aa1aea634af9d6000792eea8a65e81fb7}\label{class_graphics_app_aa1aea634af9d6000792eea8a65e81fb7}} 
+\index{GraphicsApp@{GraphicsApp}!m\_ankleBone@{m\_ankleBone}}
+\index{m\_ankleBone@{m\_ankleBone}!GraphicsApp@{GraphicsApp}}
+\doxysubsubsection{\texorpdfstring{m\_ankleBone}{m\_ankleBone}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_bone}{Bone}}$\ast$ Graphics\+App\+::m\+\_\+ankle\+Bone\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+The bottom bone that makes up the skeleton. 
+
+\mbox{\Hypertarget{class_graphics_app_a2bf4bd0bb4a6f7cb6e7c4eefdd611dbf}\label{class_graphics_app_a2bf4bd0bb4a6f7cb6e7c4eefdd611dbf}} 
+\index{GraphicsApp@{GraphicsApp}!m\_camera@{m\_camera}}
+\index{m\_camera@{m\_camera}!GraphicsApp@{GraphicsApp}}
+\doxysubsubsection{\texorpdfstring{m\_camera}{m\_camera}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_camera}{Camera}}$\ast$ Graphics\+App\+::m\+\_\+camera\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+The main camera; Controls where the user is looking. 
+
+\mbox{\Hypertarget{class_graphics_app_a12199932e4a1a1df9fdcd3f97bd42eac}\label{class_graphics_app_a12199932e4a1a1df9fdcd3f97bd42eac}} 
+\index{GraphicsApp@{GraphicsApp}!m\_d20@{m\_d20}}
+\index{m\_d20@{m\_d20}!GraphicsApp@{GraphicsApp}}
+\doxysubsubsection{\texorpdfstring{m\_d20}{m\_d20}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_d20}{D20}}$\ast$ Graphics\+App\+::m\+\_\+d20\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+An Icosahedron. 
+
+\mbox{\Hypertarget{class_graphics_app_a4409cbcf9a3084575cc7831fc0bda65e}\label{class_graphics_app_a4409cbcf9a3084575cc7831fc0bda65e}} 
+\index{GraphicsApp@{GraphicsApp}!m\_earth@{m\_earth}}
+\index{m\_earth@{m\_earth}!GraphicsApp@{GraphicsApp}}
+\doxysubsubsection{\texorpdfstring{m\_earth}{m\_earth}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_earth}{Earth}}$\ast$ Graphics\+App\+::m\+\_\+earth\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+A plane. 
+
+\mbox{\Hypertarget{class_graphics_app_a7e89e1a4563fc431ac1306ffd82202e8}\label{class_graphics_app_a7e89e1a4563fc431ac1306ffd82202e8}} 
+\index{GraphicsApp@{GraphicsApp}!m\_hipBone@{m\_hipBone}}
+\index{m\_hipBone@{m\_hipBone}!GraphicsApp@{GraphicsApp}}
+\doxysubsubsection{\texorpdfstring{m\_hipBone}{m\_hipBone}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_bone}{Bone}}$\ast$ Graphics\+App\+::m\+\_\+hip\+Bone\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+The top bone that makes up the skeleton. 
+
+\mbox{\Hypertarget{class_graphics_app_aa8c282914e07f309a5e6f0fcad7c86fd}\label{class_graphics_app_aa8c282914e07f309a5e6f0fcad7c86fd}} 
+\index{GraphicsApp@{GraphicsApp}!m\_kneeBone@{m\_kneeBone}}
+\index{m\_kneeBone@{m\_kneeBone}!GraphicsApp@{GraphicsApp}}
+\doxysubsubsection{\texorpdfstring{m\_kneeBone}{m\_kneeBone}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_bone}{Bone}}$\ast$ Graphics\+App\+::m\+\_\+knee\+Bone\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+The middle bone that makes up the skeleton. 
+
+\mbox{\Hypertarget{class_graphics_app_ab23e234e56f16309b17f45d7b9a3e4be}\label{class_graphics_app_ab23e234e56f16309b17f45d7b9a3e4be}} 
+\index{GraphicsApp@{GraphicsApp}!m\_light@{m\_light}}
+\index{m\_light@{m\_light}!GraphicsApp@{GraphicsApp}}
+\doxysubsubsection{\texorpdfstring{m\_light}{m\_light}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_light}{Light}} Graphics\+App\+::m\+\_\+light\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+The light that is shining on the object. 
+
+\mbox{\Hypertarget{class_graphics_app_a2d0da017e4249eaf9158a176be78f998}\label{class_graphics_app_a2d0da017e4249eaf9158a176be78f998}} 
+\index{GraphicsApp@{GraphicsApp}!m\_mesh@{m\_mesh}}
+\index{m\_mesh@{m\_mesh}!GraphicsApp@{GraphicsApp}}
+\doxysubsubsection{\texorpdfstring{m\_mesh}{m\_mesh}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_mesh}{Mesh}} Graphics\+App\+::m\+\_\+mesh\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+The mesh used to render a shape. 
+
+\mbox{\Hypertarget{class_graphics_app_a2a6f21652c2304a04b390f8f31d38f6d}\label{class_graphics_app_a2a6f21652c2304a04b390f8f31d38f6d}} 
+\index{GraphicsApp@{GraphicsApp}!m\_objMesh@{m\_objMesh}}
+\index{m\_objMesh@{m\_objMesh}!GraphicsApp@{GraphicsApp}}
+\doxysubsubsection{\texorpdfstring{m\_objMesh}{m\_objMesh}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classaie_1_1_o_b_j_mesh}{aie\+::\+O\+B\+J\+Mesh}} Graphics\+App\+::m\+\_\+obj\+Mesh\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+The mesh of the object that\textquotesingle{}s being rendered. 
+
+\mbox{\Hypertarget{class_graphics_app_a267a0a8a1ad9500c59acbc797789b035}\label{class_graphics_app_a267a0a8a1ad9500c59acbc797789b035}} 
+\index{GraphicsApp@{GraphicsApp}!m\_objTexture@{m\_objTexture}}
+\index{m\_objTexture@{m\_objTexture}!GraphicsApp@{GraphicsApp}}
+\doxysubsubsection{\texorpdfstring{m\_objTexture}{m\_objTexture}}
+{\footnotesize\ttfamily aie\+::\+Texture Graphics\+App\+::m\+\_\+obj\+Texture\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+The texture of the object that\textquotesingle{}s being rendered. 
+
+\mbox{\Hypertarget{class_graphics_app_af43571ecae5bb52a1f9abaf990fd1386}\label{class_graphics_app_af43571ecae5bb52a1f9abaf990fd1386}} 
+\index{GraphicsApp@{GraphicsApp}!m\_shader@{m\_shader}}
+\index{m\_shader@{m\_shader}!GraphicsApp@{GraphicsApp}}
+\doxysubsubsection{\texorpdfstring{m\_shader}{m\_shader}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classaie_1_1_shader_program}{aie\+::\+Shader\+Program}} Graphics\+App\+::m\+\_\+shader\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+The shader. 
+
+\mbox{\Hypertarget{class_graphics_app_a04db9329016246665b02f2cfcc399671}\label{class_graphics_app_a04db9329016246665b02f2cfcc399671}} 
+\index{GraphicsApp@{GraphicsApp}!m\_skeleton@{m\_skeleton}}
+\index{m\_skeleton@{m\_skeleton}!GraphicsApp@{GraphicsApp}}
+\doxysubsubsection{\texorpdfstring{m\_skeleton}{m\_skeleton}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_skeleton}{Skeleton}}$\ast$ Graphics\+App\+::m\+\_\+skeleton\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Made up of the hip bone, the knee bone, and the ankle bone. 
+
+\mbox{\Hypertarget{class_graphics_app_a2b8db3da15cece807a56aa10c27cda5c}\label{class_graphics_app_a2b8db3da15cece807a56aa10c27cda5c}} 
+\index{GraphicsApp@{GraphicsApp}!m\_texture@{m\_texture}}
+\index{m\_texture@{m\_texture}!GraphicsApp@{GraphicsApp}}
+\doxysubsubsection{\texorpdfstring{m\_texture}{m\_texture}}
+{\footnotesize\ttfamily aie\+::\+Texture Graphics\+App\+::m\+\_\+texture\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+The texture of the rendered shape. 
+
+\mbox{\Hypertarget{class_graphics_app_af29550211245022eae3323f3bd0b0237}\label{class_graphics_app_af29550211245022eae3323f3bd0b0237}} 
+\index{GraphicsApp@{GraphicsApp}!m\_transform@{m\_transform}}
+\index{m\_transform@{m\_transform}!GraphicsApp@{GraphicsApp}}
+\doxysubsubsection{\texorpdfstring{m\_transform}{m\_transform}}
+{\footnotesize\ttfamily glm\+::mat4 Graphics\+App\+::m\+\_\+transform\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+The transform of the object. 
+
+\mbox{\Hypertarget{class_graphics_app_a81b76ac377fdf4b3649b25a7c34afb6a}\label{class_graphics_app_a81b76ac377fdf4b3649b25a7c34afb6a}} 
+\index{GraphicsApp@{GraphicsApp}!m\_window@{m\_window}}
+\index{m\_window@{m\_window}!GraphicsApp@{GraphicsApp}}
+\doxysubsubsection{\texorpdfstring{m\_window}{m\_window}}
+{\footnotesize\ttfamily G\+L\+F\+Wwindow$\ast$ Graphics\+App\+::m\+\_\+window\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Stores the window. 
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_graphics_app_8h}{Graphics\+App.\+h}}\item 
+\mbox{\hyperlink{_graphics_app_8cpp}{Graphics\+App.\+cpp}}\end{DoxyCompactItemize}
