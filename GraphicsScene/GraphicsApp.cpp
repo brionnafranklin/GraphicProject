@@ -99,7 +99,6 @@ bool GraphicsApp::start()
 		return false;
 	}
 
-
 	if (!m_objMesh.load("Bunny.obj"))
 	{
 		printf("Failed to Load Bunny.obj \n");
@@ -239,7 +238,7 @@ bool GraphicsApp::draw()
 	m_shader.bindUniform("ModelMatrix", m_earth->getTransform());
 
 	//bind texture
-	//m_shader.bindUniform("diffuseTexture", 0);
+	m_shader.bindUniform("diffuseTexture", 0);
 
 	//bind time
 	//m_shader.bindUniform("timePassed", (float)glfwGetTime());
